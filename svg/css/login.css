@@ -1,0 +1,76 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+    position: relative;
+    margin: 0;
+
+    background: url('../images/login/login-bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.login-container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.login-container>h1{
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: 250%;
+  text-align: center;
+  font-weight: normal;
+}
+
+.login-container .login-form{
+  padding: 13% 14%;
+  border-top: 8px solid rgba(23, 114, 144, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px 3px rgb(23, 114, 144);
+}
+
+.login-input{
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.login-input label{
+  padding: 4px;
+  margin-right: 10px;
+  color: #1989ac;
+  font-size: 85%;
+  white-space: nowrap;
+}
+
+.login-input input{
+  flex: 1;
+  border: 1px solid #a9a9a9;
+  padding: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.login-form .login-btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.login-btns button{
+  width: 45%;
+  border: 1px solid;
+  padding: 3% 2%;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #1989ac;
+}

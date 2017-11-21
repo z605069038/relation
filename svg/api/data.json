@@ -1,0 +1,37 @@
+{
+  "nodes": [
+    {
+      "id": "ceshi1",
+      "x":"411",
+      "y":"142",
+      "isMian":"1",
+      "isSelect":"0",
+      "isLock":"0",
+      "baseMsg":{
+        "xm":"测试1"
+      }
+    },
+    {
+      "id": "ceshi2",
+      "x":"500",
+      "y":"260",
+      "isMian":"0",
+      "isSelect":"0",
+      "isLock":"0",
+      "baseMsg":{
+        "xm":"测试2"
+    }
+  }],
+  "links": [
+    {
+      "id":"testlink",
+      "target":"ceshi1",
+      "source":"ceshi2",
+      "x":"411",
+      "px":"500",
+      "y":"142",
+      "py":"260",
+      "text":"0.54"
+    }
+  ]
+}

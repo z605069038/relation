@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="plugin/layer/theme/default/layer.css" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="plugin/contextMenu/contextMenu.min.css">
+    <link type="text/css" rel="stylesheet" href="plugin/zTree_v3/css/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" href="css/frame.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css"/>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <link rel="stylesheet" href="css/icon-font/font-awesome.css" type="text/css"/>
+    <link rel="stylesheet" href="css/right-function-bar.css" type="text/css"/>
+    <link rel="stylesheet" href="css/left-function-bar.css" type="text/css"/>
+    <link rel="stylesheet" href="css/UIElement/button.css" type="text/css"/>
+    <link rel="stylesheet" href="css/UIElement/form.css" type="text/css"/>
+</head>
+<body class="none">
+    <!--头部-->
+    <header class="header-container">
+        <div class="header-title">
+            <img src="images/header/logo.png" alt="">
+            <h1>智慧神经元</h1>
+        </div>
+        <div class="right clearfix">
+            <div class="header-user">
+                <span id="userMenu">张警官<i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                <ul class="header-menu">
+                    <li>修改密码</li>
+                    <li>退出</li>
+                </ul>
+            </div>
+            <div class="header-setting">
+                <span id="settingMenu"><i class="fa fa-cog" aria-hidden="true"></i>系统设置</span>
+                <ul class="header-menu">
+                    <li>用户设置</li>
+                    <li>角色设置</li>
+                    <li>菜单设置</li>
+                    <li>权限管理</li>
+                    <li>高级配置</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--主体内容-->
+    <div class="bodyContainer">
+        <!--左侧文件目录-->
+        <section class="left-bar">
+            <ul class="left-tab">
+                <li id="showLeftBar" data-tips="收起" class="left-bar-subItem">
+                    展开
+                </li>
+                <li data-tips="文件目录" class="left-bar-subItem">
+                    <!-- 对象信息查看 -->
+                    目录
+                </li>
+                <li data-tips="协同共享" class="left-bar-subItem">
+                    <!-- 统计信息查看 -->
+                    共享
+                </li>
+                <li data-tips="上传数据" class="left-bar-subItem">
+                    <!-- 标签信息查看 -->
+                    上传
+                </li>
+            </ul>
+            <div id="leftBarContent" class="left-ana-tab-content">
+                <ul class="left-tab-content-item">
+                    <li class="left-tab-content-subItem"></li>
+                    <li class="left-tab-content-subItem">
+                        <!-- 文件目录列表 -->
+                        <div class="left-tab-container">
+                            <ul class="left-child-btn">
+                                <li><i class="fa fa-plus" title="新增"></i></button> </li>
+                                <li><i class="fa fa-share-alt" title="分享"></i></button></li>
+                                <li><i class="fa fa-trash-o" title="删除"></i></button></li>
+                            </ul>
+                            <div class="left-bar-content scrollbar">
+                                <div class="active">
+                                    <div class="pad10">
+                                        <div class="search-container">
+                                            <input class="search-input" type="text" name=""/>
+                                            <span class="search-btn"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header new_folder">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    新建文件夹A
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            新建文件A
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            新建文件B
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            新建文件C
+                                                        </span>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header new_folder">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    新建文件夹B
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                           新建文件AA
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            新建文件BB
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header new_folder">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    新建文件夹C
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            新建文件AAA
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                           新建文件BBB
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="left-tab-content-subItem">
+                        <!-- 协同共享列表 -->
+                        <div class="left-tab-container">
+                            <ul class="left-child-btn">
+                                <li><i class="fa fa-plus" title="新增"></i></button> </li>
+                                <li><i class="fa fa-share-alt" title="分享"></i></button></li>
+                                <li><i class="fa fa-trash-o" title="删除"></i></button></li>
+                            </ul>
+                            <div class="left-bar-content scrollbar">
+                                <div class="active">
+                                    <div class="pad10">
+                                        <div class="search-container">
+                                            <input class="search-input" type="text" name=""/>
+                                            <span class="search-btn"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    我分享的文件
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block share">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            共享文件A
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            共享文件B
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            共享文件C
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    他人分享的文件
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            共享文件AA
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            共享文件BB
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="left-tab-content-subItem">
+                        <!-- 数据上传列表 -->
+                        <div class="left-tab-container">
+                            <ul class="left-child-btn -right">
+                                <li><i class="fa fa-cloud-upload" title="文件选择"></i></button></li>
+                                <li><i class="fa fa-download" title="文件保存"></i></button></li>
+                                <li><i class="fa fa-trash-o" title="删除"></i></button></li>
+                            </ul>
+                            <div class="left-bar-content scrollbar">
+                                <div class="active">
+                                    <div class="pad10">
+                                        <div class="search-container">
+                                            <input class="search-input" type="text" name=""/>
+                                            <span class="search-btn"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    上传数据模板
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block download">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            模板A
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            模板B
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            模板C
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    已上传数据
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block download-delete">
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            A1月份数据
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <span class="list-second-header">
+                                                            A2月份数据
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!--默认的最初新建分析-->
+        <div class="default-dialog-workspace">
+            <div class="default-dialog">
+                <img src="images/u388.png" class="default-dialog-null-img">
+                <button class="default-dialog-add-button">新建分析</button>
+            </div>
+        </div>
+        <!--分析内容-->
+        <div class="mainBody none">
+            <section class="workspace">
+                <!--文件tab页-->
+                <ul class="workapce-tab-list">
+                    <li class="new-workspace-tab">
+                        <i><img src="images/u302.png" width="24"></i>
+                    </li>
+                </ul>
+                <!--功能栏-->
+                <div class="graph-toolbar">
+                    <div class="toolbar-left left clearfix">
+                        <!--基础分析-->
+                        <div class="toolbar-btn-container">
+                            <img src="images/u266.png">
+                            <div class="toolbar-slider">
+                                <ul class="toolbar-slider-list">
+                                    <li class="toolbar-slider-box" data-type="gxcx">
+                                        <a class=""><i class="fa fa-trash-o"></i> 关系查询</a>
+                                    </li>
+                                    <li class="toolbar-slider-box" data-type="qtfx">
+                                        <a class="" ><i class="fa fa-trash-o"></i> 群体分析</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--高级分析-->
+                        <div class="toolbar-btn-container">
+                            <img src="images/u271.png">
+                            <div class="toolbar-slider">
+                                <ul class="toolbar-slider-list">
+                                    <li class="toolbar-slider-box" data-type="gtlj">
+                                        <a class=""><i class="fa fa-trash-o"></i> 共同邻居</a>
+                                    </li>
+                                    <li class="toolbar-slider-box" data-type="xyfx">
+                                        <a class="" ><i class="fa fa-trash-o"></i> 血缘分析</a>
+                                    </li>
+                                    <li class="toolbar-slider-box" data-type="ljfx">
+                                        <a class="" ><i class="fa fa-trash-o"></i> 路径分析</a>
+                                    </li>
+                                    <li class="toolbar-slider-box" data-type="ggfx">
+                                        <a class="" ><i class="fa fa-trash-o"></i> 骨干分析</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--位置布局-->
+                        <div class="toolbar-btn-container">
+                            <img src="images/u276.png">
+                            <div class="toolbar-slider">
+                                <ul class="toolbar-slider-list">
+                                    <li class="toolbar-slider-box" data-type="jzbj">
+                                        <a class=""><i class="fa fa-trash-o"></i> 矩阵布局</a>
+                                    </li>
+                                    <li class="toolbar-slider-box" data-type="ldxbj">
+                                        <a class="" ><i class="fa fa-trash-o"></i> 力导向布局</a>
+                                    </li>
+                                    <li class="toolbar-slider-box" data-type="ccbj">
+                                        <a class="" ><i class="fa fa-trash-o"></i> 层次布局</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="toolbar-splitter2"></div>
+                        <div class="toolbar-btn-container toolbar-btn-container-select">
+                            <img src="images/u294.png" alt="添加节点" class="addnode">
+                        </div>
+                        <div class="toolbar-btn-container toolbar-btn-container-select ">
+                            <img src="images/u296.png" alt="选择节点" class="selectnode">
+                        </div>
+                        <div class="toolbar-btn-container toolbar-btn-container-select">
+                            <img src="images/u298.png" alt="移动画布" class="movecanvas">
+                        </div>
+                        <div class="toolbar-btn-container toolbar-btn-container-select">
+                            <img src="images/u300.png" alt="节点锁定" class="dingpath">
+                        </div>
+                        <div class="toolbar-splitter2"></div>
+                        <div class="toolbar-btn-container">
+                            <img src="images/u282.png" alt="撤销" class="back">
+                        </div>
+                        <div class="toolbar-btn-container">
+                            <img src="images/u284.png" alt="重做" class="redo">
+                        </div>
+                        <div class="toolbar-btn-container">
+                            <img src="images/u286.png" alt="打印文件" class="print">
+                        </div>
+                        <div class="toolbar-btn-container">
+                            <img src="images/u288.png" alt="保存分析" class="save">
+                        </div>
+                        <div class="toolbar-btn-container">
+                            <img src="images/u290.png" alt="删除分析" class="delete">
+                        </div>
+                        <div class="toolbar-btn-container">
+                            <img src="images/u292.png" alt="分享文件" class="share">
+                        </div>
+                    </div>
+                </div>
+                <!--画布显示内容-->
+                <div class="graph-container">
+                    <svg class="graph-canvas">
+                        <rect class="graph-event" style="position: absolute;fill:white;fill-opacity: 0.1"></rect>
+                        <g transform="translate(0,0) scale(1)" class="graph-main"></g>
+                    </svg>
+                </div>
+                <!--全屏-->
+                <div class="graph-fullscreen">
+                    <img src="images/u370.png" width="24">
+                </div>
+                <!--放大缩小工具栏-->
+                <div class="graph-zoombar">
+                    <img class="zoomin" src="images/u374.png" width="20">
+                    <img class="zoomout" src="images/u372.png" width="20">
+                    <div class="zoommain">
+                        <div class="zoomstep"></div>
+                        <div class="zoomhadle"></div>
+                    </div>
+                </div>
+                <!--缩略图-->
+                <div class="graph-thumbnail-container">
+                    <div class="graph-thumbnail-toggle">
+                        <span class="ant-switch-small ant-switch">
+                            <span class="ant-switch-inner"></span>
+                        </span>
+                    </div>
+                    <div class="thumbnail-main" id="controlDiv">
+                        <!--<canvas class="graph-thumbnail" width="144" height="144"></canvas>-->
+                        <span id="dragBox" style="cursor:-webkit-grab;position:absolute;left:2px; z-index: 5;
+	width: 100px; height: 50px; background:url('images/whitebg.png') repeat;border-bottom:solid 0px #03D;border-top:solid 0px #03D;opacity:0.5"></span>
+                    </div>
+                </div>
+            </section>
+            <div id="rightBarContent" class="right-ana-tab-content">
+                <ul class="right-tab-content-item">
+                    <li class="right-tab-content-subItem"></li>
+                    <li class="right-tab-content-subItem active">
+                        <!-- 对象信息列表 -->
+                        <div class="panel objInfoContainer">
+                            <header class="panel-header">
+                                <span class="panel-header-right">
+                                    <i class="fa fa-cloud-upload"></i>
+                                </span>
+                            </header>
+                            <div class="panel-content scrollbar">
+                                <div class="pad10">
+                                    <div class="search-container">
+                                        <input class="search-input" type="text" name=""/>
+                                        <span class="search-btn"><i class="fa fa-search"></i></span>
+                                    </div>
+                                </div>
+                                <div data-operate="slide" id="objInfo" class="list-block">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 对象信息查询详细信息 -->
+                        <div class="panel objInfoDetail none">
+                            <header class="panel-header">
+                            <span id="objInfoDetailTOContainer" class="panel-header-left">
+                                <i class="fa fa-arrow-left"></i>
+                            </span>
+                                <span class="panel-header-right">
+                                <i class="fa fa-cloud-upload"></i>
+                            </span>
+                            </header>
+                            <div class="panel-content scrollbar">
+                                <div class="pad10">
+                                    <div class="search-container">
+                                        <input class="search-input" type="text" name=""/>
+                                        <span class="search-btn"><i class="fa fa-search"></i></span>
+                                    </div>
+                                </div>
+                                <div id="objInfoDetail" class="list-block">
+                                    <div class="objInfo-idCard-container">
+                                        <div class="objInfo-idCard-img">
+                                            <img src="images/defaults/objInfo-photo.jpg" alt="">
+                                        </div>
+                                        <div class="objInfo-idCard-table">
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td>姓名</td>
+                                                    <td>孙想陶</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>公民身份号码</td>
+                                                    <td><span>3301833018319910402585230183199104025852199104025852</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>出生日期</td>
+                                                    <td>19910402</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>国籍</td>
+                                                    <td>中国</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>姓名</td>
+                                                    <td>孙涛</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>前科人员</td>
+                                                    <td>否</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>性别</td>
+                                                    <td>男</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>籍贯</td>
+                                                    <td>浙江省杭州市富阳市</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>民族</td>
+                                                    <td>汉族</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>户籍地</td>
+                                                    <td>浙江省杭州市富阳市</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>现住地</td>
+                                                    <td>浙江省杭州市富阳市</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>是否公安七类</td>
+                                                    <td>否</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="StatisticsModule" class="right-tab-content-subItem">
+                        <!-- 统计信息查看列表 -->
+                        <div class="right-tab-container">
+                            <ul class="right-tab">
+                                <li class="active">总体分布</li>
+                                <li>对象属性</li>
+                                <li>关系属性</li>
+                            </ul>
+                            <div class="right-tab-content scrollbar">
+                                <div class="active">
+                                    <div class="pad10">
+                                        <div class="search-container">
+                                            <input class="search-input" type="text" name=""/>
+                                            <span class="search-btn"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    对象分布
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                        <span class="list-second-header">
+                                                            身份证
+                                                            <span class="right">4个</span>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-second-header">
+                                                            MAC
+                                                            <span class="right">1个</span>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-second-header">
+                                                            微信
+                                                            <span class="right">1个</span>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    关系分布
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                        <span class="list-second-header">
+                                                            0.55
+                                                            <span class="right">1个</span>
+                                                        </span>
+                                                        </li>
+                                                        <li>
+                                                        <span class="list-second-header">
+                                                            0.99
+                                                            <span class="right">1个</span>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="pad10">
+                                        <div class="search-container">
+                                            <input class="search-input" type="text" name=""/>
+                                            <span class="search-btn"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    身份证
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                        <span data-operate="slideLi" class="list-second-header">
+                                                            公民身份号码
+                                                            <i class="fa fa-angle-double-up list-header-show"></i>
+                                                        </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li class="isChoose">123456789123456789</li>
+                                                            <li class="isChoose">123456789123456789</li>
+                                                            <li class="isChoose">123456789123456789</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <span data-operate="slideLi" class="list-second-header">
+                                                            出生日期
+                                                            <i class="fa fa-angle-double-up list-header-show"></i>
+                                                        </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li class="isChoose">123456789123456789</li>
+                                                            <li class="isChoose">123456789123456789</li>
+                                                            <li class="isChoose">123456789123456789</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    MAC信息
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                        <span data-operate="slideLi" class="list-second-header">
+                                                            MAC名称
+                                                            <i class="fa fa-angle-double-up list-header-show"></i>
+                                                        </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li class="isChoose">2A-3B-4C-5D-6E</li>
+                                                            <li class="isChoose">2A-3B-4C-5D-6E</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        MAC采集地址
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li class="isChoose">123456789123456789</li>
+                                                            <li class="isChoose">123456789123456789</li>
+                                                            <li class="isChoose">123456789123456789</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <i class="fa fa-clipboard list-header-icon"></i>
+                                                    微信信息
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                        <span data-operate="slideLi" class="list-second-header">
+                                                            微信名称
+                                                            <i class="fa fa-angle-double-up list-header-show"></i>
+                                                        </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li>西门吹雪</li>
+                                                            <li>东窗吸雨</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <span data-operate="slideLi" class="list-second-header">
+                                                            关联手机号
+                                                            <i class="fa fa-angle-double-up list-header-show"></i>
+                                                        </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li>123456789123456789</li>
+                                                            <li>123456789123456789</li>
+                                                            <li>123456789123456789</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="pad10">
+                                        <div class="search-container">
+                                            <input class="search-input" type="text" name=""/>
+                                            <span class="search-btn"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                            <span data-operate="slideLi" class="list-header">
+                                                <i class="fa fa-clipboard list-header-icon"></i>
+                                                亲密度
+                                                <i class="fa fa-angle-double-up list-header-show"></i>
+                                            </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        身份证
+                                                        <span>4个</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li>123456789123456789</li>
+                                                            <li>123456789123456789</li>
+                                                            <li>123456789123456789</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        姓名
+                                                        <span>4个</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li>123456789123456789</li>
+                                                            <li>123456789123456789</li>
+                                                            <li>123456789123456789</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        飞机邻座次数
+                                                        <span>4个</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                        <ul data-operate="slideContent" class="list-three-block">
+                                                            <li>
+                                                                次数0
+                                                                <span class="right">18条</span>
+                                                            </li>
+                                                            <li>
+                                                                次数1
+                                                                <span class="right">2条</span>
+                                                            </li>
+                                                            <li>
+                                                                次数6
+                                                                <span class="right">1条</span>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        飞机同班次数
+                                                        <span>1次</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                    </li>
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        住宿同房间次数
+                                                        <span>1次</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                    </li>
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        同地址次数
+                                                        <span>1次</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                    </li>
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        同上网次数
+                                                        <span>1次</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li id="TagModule" class="right-tab-content-subItem">
+                        <!-- 标签信息查看 -->
+                        <div class="panel">
+                            <header class="panel-header">
+                            <span class="panel-header-right">
+                                <i class="fa fa-cloud-upload"></i>
+                            </span>
+                            </header>
+                            <div class="panel-content">
+                                <div class="pad10">
+                                    <div class="search-container">
+                                        <input class="search-input" type="text" name=""/>
+                                        <span class="search-btn"><i class="fa fa-search"></i></span>
+                                    </div>
+                                </div>
+                                <div data-operate="slide" class="list-block">
+                                    <ul>
+                                        <li>
+                                            <span data-operate="slideLi" class="list-header">
+                                                <i class="fa fa-clipboard list-header-icon"></i>
+                                                标签信息
+                                                <i class="fa fa-angle-double-up list-header-show"></i>
+                                            </span>
+                                            <ul data-operate="slideContent" class="list-second-block">
+                                                <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        当前用户标签
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                    <ul data-operate="slideContent" class="list-three-block">
+                                                        <li class="isChoose">
+                                                            标签S
+                                                            <span class="right">12个</span>
+                                                        </li>
+                                                        <li class="isChoose">
+                                                            标签B
+                                                            <span class="right">1个</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        A用户标签
+                                                        <span>4个</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span data-operate="slideLi" class="list-second-header">
+                                                        B用户标签
+                                                        <span>4个</span>
+                                                        <i class="fa fa-angle-double-up list-header-show"></i>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="CriteriaScreenModule" class="right-tab-content-subItem">
+                        <!-- 条件过滤筛选 -->
+                        <div class="right-tab-container">
+                            <ul class="right-tab">
+                                <li class="active">对象筛选</li>
+                                <li>关系筛选</li>
+                            </ul>
+                            <div class="right-tab-content scrollbar">
+                                <div data-operate="slide" class="active">
+                                    <div id="criteriaScreenList" class="list-block">
+                                        <ul>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <input type="checkbox" name="">
+                                                    身份证
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">公民身份号码</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                            <div class="search-result scrollbar">
+                                                                <div class="search-info">
+                                                                    <span class="search-text">
+                                                                        张
+                                                                    </span>
+                                                                    <span class="search-del">
+                                                                        X
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">姓名</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">出生日期</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-select">
+                                                            <label for="">国籍</label>
+                                                            <div class="search-form-choose">
+                                                                <select name="">
+                                                                    <option value="">中国</option>
+                                                                    <option value="">美国</option>
+                                                                    <option value="">日本</option>
+                                                                    <option value="">火星</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-radio">
+                                                            <label for="">前科人员</label>
+                                                            <div class="search-form-radio-Item">
+                                                                <label for="">
+                                                                    <input class="" type="checkbox" name="">
+                                                                    贩毒前科
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="checkbox" name="">
+                                                                    吸毒前科
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="checkbox" name="">
+                                                                    侵财前科
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="checkbox" name="">
+                                                                    涉黄前科
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="checkbox" name="">
+                                                                    无前科
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-radio">
+                                                            <label for="">性别</label>
+                                                            <div class="search-form-radio-Item">
+                                                                <label for="">
+                                                                    <input class="" type="radio" name="">
+                                                                    全部
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="radio" name="">
+                                                                    男
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="radio" name="">
+                                                                    女
+                                                                </label>
+                                                                <label for="">
+                                                                    <input class="" type="radio" name="">
+                                                                    未知
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">民族</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">户籍地</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">详细地址</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">重点人员预警级别</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">户籍地详细地址</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <input type="checkbox" name="">
+                                                    MAC信息
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        0.55
+                                                        <span class="right">1个</span>
+                                                    </span>
+                                                    </li>
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        0.99
+                                                        <span class="right">1个</span>
+                                                    </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span data-operate="slideLi" class="list-header">
+                                                    <input type="checkbox" name="">
+                                                    微信信息
+                                                    <i class="fa fa-angle-double-up list-header-show"></i>
+                                                </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="screen-btn-group">
+                                        <button class="btn is-primary" type="button">确定</button>
+                                        <button class="btn is-info" type="button">重置</button>
+                                        <button class="btn is-danger" type="button">删除选中</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="list-block">
+                                        <ul data-operate="slide">
+                                            <li>
+                                            <span data-operate="slideLi" class="list-header">
+                                                <input type="checkbox" name="">
+                                                亲密度
+                                                <i class="fa fa-angle-double-up list-header-show"></i>
+                                            </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-range">
+                                                            <label for="">亲密度分数</label>
+                                                            <div class="search-range-container">
+                                                                <input class="search-range-input" type="text" name="">
+                                                                <span class="search-range-line"></span>
+                                                                <input class="search-range-input" type="text" name="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">证件号码</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">姓名</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">关系人证件号码</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form">
+                                                            <label for="">关系人姓名</label>
+                                                            <div class="search-container">
+                                                                <input class="search-input" type="text" name=""/>
+                                                                <span class="search-btn"><i class="fa fa-search"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-range">
+                                                            <label for="">飞机邻座次数</label>
+                                                            <div class="search-range-container">
+                                                                <input class="search-range-input" type="text" name="">
+                                                                <span class="search-range-line"></span>
+                                                                <input class="search-range-input" type="text" name="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-range">
+                                                            <label for="">飞机同班次次数</label>
+                                                            <div class="search-range-container">
+                                                                <input class="search-range-input" type="text" name="">
+                                                                <span class="search-range-line"></span>
+                                                                <input class="search-range-input" type="text" name="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-range">
+                                                            <label for="">同户次数</label>
+                                                            <div class="search-range-container">
+                                                                <input class="search-range-input" type="text" name="">
+                                                                <span class="search-range-line"></span>
+                                                                <input class="search-range-input" type="text" name="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-range">
+                                                            <label for="">同暂住次数</label>
+                                                            <div class="search-range-container">
+                                                                <input class="search-range-input" type="text" name="">
+                                                                <span class="search-range-line"></span>
+                                                                <input class="search-range-input" type="text" name="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-second-link">
+                                                        <div class="search-form-range">
+                                                            <label for="">同案次数</label>
+                                                            <div class="search-range-container">
+                                                                <input class="search-range-input" type="text" name="">
+                                                                <span class="search-range-line"></span>
+                                                                <input class="search-range-input" type="text" name="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                            <span data-operate="slideLi" class="list-header">
+                                                <input type="checkbox" name="">
+                                                同地址
+                                                <i class="fa fa-angle-double-up list-header-show"></i>
+                                            </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        0.55
+                                                        <span class="right">1个</span>
+                                                    </span>
+                                                    </li>
+                                                    <li>
+                                                    <span class="list-second-header">
+                                                        0.99
+                                                        <span class="right">1个</span>
+                                                    </span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                            <span data-operate="slideLi" class="list-header">
+                                                <input type="checkbox" name="">
+                                                同户籍
+                                                <i class="fa fa-angle-double-up list-header-show"></i>
+                                            </span>
+                                                <ul data-operate="slideContent" class="list-second-block">
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="screen-btn-group">
+                                        <button class="btn is-primary" type="button">确定</button>
+                                        <button class="btn is-info" type="button">重置</button>
+                                        <button class="btn is-danger" type="button">删除选中</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 滑动线 -->
+                <div id="slideLine" class="slide-line"></div>
+            </div>
+            <!--右侧功能栏-->
+            <section class="right-bar-ana">
+                <ul class="right-ana-tab right-bar-item">
+                    <li id="showRightBar" data-tips="收起" class="right-bar-subItem">
+                        收起
+                    </li>
+                    <li data-tips="对象信息查看" class="right-bar-subItem active">
+                        <!-- 对象信息查看 -->
+                        <i class="fa fa-camera-retro"></i>
+                    </li>
+                    <li data-tips="统计信息查看" class="right-bar-subItem">
+                        <!-- 统计信息查看 -->
+                        统计
+                    </li>
+                    <li data-tips="二次标签过滤" class="right-bar-subItem">
+                        <!-- 标签信息查看 -->
+                        标签
+                    </li>
+                    <li data-tips="条件过滤筛选" class="right-bar-subItem">
+                        <!-- 条件过滤查看 -->
+                        条件
+                    </li>
+                </ul>
+            </section>
+            <!--添加节点弹窗-->
+            <div class="modal modal-addNode" style="width: 500px;">
+                <div class="modal-header">
+                    添加节点
+                    <i class="modal-close">×</i>
+                </div>
+                <div class="modal-body">
+                    <div class="addNode-select">
+                        <select><option>身份证</option><option>物品</option></select>
+                    </div>
+                    <div class="addNode-text">
+                        <textarea placeholder="多个实体节点请以“，”隔开"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="button-group">
+                        <button class="button btn-ghost ">取消</button>
+                        <button class="button btn-primary btn-addNode is-primary">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--群体分析弹框 多步骤表单弹框demo-->
+        <div class="layer-modal-box layer-step">
+            <div class="tool-modal">
+                <div class="tool-modal-header clearfix">
+                    <div class="field is-horizontal ljfx-box pull-left">
+                        <div class="field-label">
+                            <label class="label"><span class="color-red">*</span>路径分析：</label>
+                        </div>
+                        <div class="select">
+                            <select class="ljfx">
+                                <option data-id="0">全量数据</option>
+                                <option data-id="1">本页数据</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal glds-box pull-left">
+                        <div class="field-label">
+                            <label class="label">关联度数：</label>
+                        </div>
+                        <div class="field-body">
+                            <input class="input glds" type="text" placeholder="请输入关联度数">
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-modal-body modal-body first-step">
+                    <div class="tool-modal-left pull-left">
+                        <div class="tool-modal-title">
+                            <p class="text-center">选择类型</p>
+                        </div>
+                        <div class="tool-modal-left-content">
+                            <div class="type-choose">
+                                <ul class="type-list">
+                                    <li class="type-box">
+                                <span>
+                                    <input class="type-checkbox" type="checkbox" />全部
+                                </span>
+                                    </li>
+                                    <li class="type-box">
+                                <span>
+                                    <input class="type-checkbox" type="checkbox" />身份证
+                                </span>
+                                    </li>
+                                    <li class="type-box">
+                                <span>
+                                    <input class="type-checkbox" type="checkbox" />MAC信息
+                                </span>
+                                    </li>
+                                    <li class="type-box">
+                                <span>
+                                    <input class="type-checkbox" type="checkbox" />微信信息
+                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-modal-right pull-right">
+                        <div class="tool-modal-title">
+                            <p class="text-center">选择对象</p>
+                        </div>
+                        <div class="tool-modal-right-content">
+                            <div class="obj-choose">
+                                <ul class="obj-list">
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />全部
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />身份证
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />MAC信息
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />微信信息
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />全部
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />身份证
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />MAC信息
+                                </span>
+                                    </li>
+                                    <li class="obj-box">
+                                <span>
+                                    <input class="obj-checkbox" type="checkbox" />微信信息
+                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-modal-body modal-body second-step none">
+                    <div class="tool-modal-left pull-left">
+                        <div class="tool-modal-title">
+                            <p class="text-center">选择关系</p>
+                        </div>
+                        <div class="tool-modal-left-content">
+                            <div class="zTreeDemoBackground">
+                                <ul id="gxTree" class="ztree"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-modal-right pull-right">
+                        <div class="tool-modal-title">
+                            <p class="text-center">选择对象</p>
+                        </div>
+                        <div class="tool-modal-right-content">
+                            <div class="obj-choose">
+                                <div class="obj-top">
+                                    <p class="obj-title">积分区间</p>
+                                    <div class="obj-select-box">
+                                        <div class="select select-interval-box">
+                                            <select class="select-interval">
+                                                <option data-id="">请选择</option>
+                                                <option data-id="0">=</option>
+                                                <option data-id="1">>=</option>
+                                                <option data-id="2"><=</option>
+                                                <option data-id="3">区间</option>
+                                            </select>
+                                        </div>
+                                        <div class="field-body interval-box">
+                                            <span class="start-interval"><input class="field" type="text" ></span>
+                                            <span class="interval-line">—</span>
+                                            <span class="end-interval"><input class="field" type="text" ></span>
+                                            <span class="no-interval none"><input class="field" type="text" ></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="obj-bottom">
+                                    <p class="obj-title">关系次数</p>
+                                    <div class="obj-select-box">
+                                        <div class="select select-times-box">
+                                            <select class="select-times">
+                                                <option data-id="">请选择</option>
+                                                <option data-id="0">=</option>
+                                                <option data-id="1">>=</option>
+                                                <option data-id="2"><=</option>
+                                                <option data-id="3">区间</option>
+                                            </select>
+                                        </div>
+                                        <div class="field-body times-box">
+                                            <span class="start-times"><input class="field" type="text" ></span>
+                                            <span class="interval-line">—</span>
+                                            <span class="end-times"><input class="field" type="text" ></span>
+                                            <span class="no-times none"><input class="field" type="text" ></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-modal-footer">
+                    <div class="modal-footer-btn">
+                        <button class="cancel btn is-danger" type="button">取消</button>
+                        <button class="next btn is-primary" type="button">下一步</button>
+                        <button class="prev btn is-warning none" type="button">上一步</button>
+                        <button class="analysis btn is-success none" type="button">立即分析</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--血缘分析 单步骤表单弹框demo-->
+        <div class="layer-modal-box layer-alone">
+            <div class="tool-modal">
+                <div class="modal-body">
+                    <div class="field is-horizontal xyds-box">
+                        <div class="field-label">
+                            <label class="label">血缘度数：</label>
+                        </div>
+                        <div class="field-body">
+                            <input class="input xyds" type="text" placeholder="请输入血缘度数">
+                        </div>
+                    </div>
+                    <div class="field is-horizontal xyfx">
+                        <div class="control-label">
+                            <label class="label">布局方式：</label>
+                        </div>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="bjfs" data-type="0">
+                                力导向布局
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="bjfs" data-type="1">
+                                层次布局
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-modal-footer">
+                    <div class="modal-footer-btn">
+                        <button class="cancel btn is-danger" type="button">取消</button>
+                        <button class="submit btn is-primary" type="button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--左侧新建文件夹 弹框-->
+        <div class="layer-modal-box new-folder">
+            <div class="tool-modal new-folder-modal">
+                <div class="modal-body ma-t25">
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">文件夹名称：</label>
+                        </div>
+                        <div class="field-body">
+                            <input class="input folder-name" type="text" placeholder="请输入文件夹名称">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer-btn">
+                        <button class="cancel btn is-danger" type="button">取消</button>
+                        <button class="submit btn is-primary" type="button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--左侧新建文件 弹框-->
+        <div class="layer-modal-box new-file">
+            <div class="tool-modal new-file-modal">
+                <div class="modal-body ma-t25">
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">文件夹名称：</label>
+                        </div>
+                        <div class="field-body">
+                            <input class="input file-name" type="text" placeholder="请输入文件夹名称">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer-btn">
+                        <button class="cancel btn is-danger" type="button">取消</button>
+                        <button class="submit btn is-primary" type="button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--工具栏保存按钮 弹框-->
+        <div class="layer-modal-box layer-save">
+            <div class="tool-modal save-modal">
+                <div class="modal-body ma-t25">
+                    <div class="field is-horizontal save-file-name">
+                        <div class="field-label">
+                            <label class="label">分析文件名称：</label>
+                        </div>
+                        <div class="field-body">
+                            <input class="input folder-name" type="text" placeholder="请输入分析文件名称">
+                        </div>
+                    </div>
+                    <div class="field is-horizontal save-folder-name">
+                        <div class="select-label">
+                            <label class="label">文件夹：</label>
+                        </div>
+                        <div class="select">
+                            <select class="save-location">
+                            </select>
+                        </div>
+                        <a class="new-folder-icon" title="创建新文件夹存放">
+                            <i class="fa fa-folder"></i>
+                        </a>
+                    </div>
+                    <div class="field is-horizontal save-new-folder none">
+                        <div class="field-label">
+                            <label class="label">新文件夹名称：</label>
+                        </div>
+                        <div class="field-body">
+                            <input class="input new-folder-name" type="text" placeholder="请输入您将要新建的文件夹的名称">
+                        </div>
+                        <a class="close-new-folder-icon" title="选择现有文件夹存放">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer-btn">
+                        <button class="cancel btn is-danger" type="button">取消</button>
+                        <button class="submit btn is-primary" type="button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--首页 人员关系分析入口-->
+    <div class="main-entrance-box">
+        <div class="main-entrance">
+            <div class="entrance-left radius-l3">
+                <div class="entrance-user-info clearfix">
+                    <div class="entrance-user-pic pull-left">
+                        <img class="user-pic" src="./images/u292.png">
+                    </div>
+                    <div class="entrance-user-name pull-right ma-l10">
+                        <p class="user-name">Hi，<span class="name-box">用户A</span> </p>
+                        <p class="sys-version">版本号（<span class="version">V1.0</span>）</p>
+                    </div>
+                </div>
+                <ul class="entrance-left-tab">
+                    <li data-tips="最近编辑" class="entrance-left-bar-subItem">
+                        <i class="fa fa-folder-o ma-r15"></i> 最近编辑
+                    </li>
+                    <li data-tips="快速指南" class="entrance-left-bar-subItem">
+                        <i class="fa fa-folder-o ma-r15"></i> 快速指南
+                    </li>
+                    <li data-tips="新功能介绍" class="entrance-left-bar-subItem">
+                        <i class="fa fa-folder-o ma-r15"></i> 新功能介绍
+                    </li>
+                    <li data-tips="常见问题" class="entrance-left-bar-subItem">
+                        <i class="fa fa-folder-o ma-r15"></i> 常见问题
+                    </li>
+                    <li data-tips="问题反馈" class="entrance-left-bar-subItem">
+                        <i class="fa fa-folder-o ma-r15"></i> 问题反馈
+                    </li>
+                </ul>
+            </div>
+            <div class="entrance-right radius-r3">
+                <a class="close-entrance-btn"><i class="fa fa-close"></i></a>
+                <div id="entrance-right-content" class="entrance-right-content">
+                    <div class="entrance-right-content-item">
+                        <div class="entrance-right-content-subItem none">
+                            <div class="entrance-right-content-box ma-t15">
+                                <h3 class="entrance-right-title ma-b20">最近打开文件</h3>
+                                <ul class="entrance-folder-list recently-open">
+                                    <li class="entrance-folder">
+                                        <a ><i class="fa fa-folder ma-r5"></i> <span>人员关系1</span></a>
+                                    </li>
+                                    <li class="entrance-folder">
+                                        <a ><i class="fa fa-folder ma-r5"></i> <span>人员关系2</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="entrance-right-content-box ma-t15">
+                                <h3 class="entrance-right-title ma-b20">最近分享给我的文件</h3>
+                                <ul class="entrance-folder-list recently-share">
+                                    <li class="entrance-folder">
+                                        <a ><i class="fa fa-folder ma-r5"></i> <span>分享人员关系1</span></a>
+                                    </li>
+                                    <li class="entrance-folder">
+                                        <a ><i class="fa fa-folder ma-r5"></i> <span>分享人员关系2</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="entrance-right-content-subItem none">
+                            <div class="entrance-right-content-box">
+                                <h3 class="entrance-right-title ma-b20 ma-l0">帮助视频</h3>
+                                <div class="help-media">
+                                    <video src="" controls="controls" class="help-viedo">
+                                        您的浏览器不支持 video 标签。
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entrance-right-content-subItem none">
+                            <div class="entrance-right-content-box">
+                                <h3 class="entrance-right-title ma-b20 ma-l0">新功能介绍</h3>
+                                <div class="news-list">
+                                    <p class="what-news text-left ma-b15">1、增添了多节点分析功能；</p>
+                                    <p class="what-news text-left ma-b15">2、增添了多节点分析功能；</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entrance-right-content-subItem none">
+                            <div class="entrance-right-content-box">
+                                <h3 class="entrance-right-title ma-b20 ma-l0">常见问题</h3>
+                                <div class="qa-list">
+                                    <p class="qa text-left ma-b20">
+                                        <span class="q block ma-b10">1、首次如何登录？</span>
+                                        <span class="a block">请与对应管理员联系获取登录账号，首次登录初始密码为XXXXXX</span>
+                                    </p>
+                                    <p class="qa text-left ma-b20">
+                                        <span class="q block ma-b10">2、首次如何登录？</span>
+                                        <span class="a block">请与对应管理员联系获取登录账号，首次登录初始密码为XXXXXX</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entrance-right-content-subItem">
+                            <div class="entrance-right-content-box">
+                                <h3 class="entrance-right-title ma-b20 ma-l0">意见反馈</h3>
+                                <div class="feed-back">
+                                    <div class="feed-back-form">
+                                        <textarea class="textarea feed-back-textarea" id="feed-textarea"></textarea>
+                                        <div class="feed-back-type clearfix ma-t5">
+                                            <input class="feed-file none" type="file" id="feed-file">
+                                            <label for="feed-file" class="feed-upload pull-left"><i class="fa fa-folder-o ma-r5"></i>附件 </label>
+                                            <div class="submit-btn pull-right ma-l15">
+                                                <button class="feed-submit btn is-primary pa-x15" type="button">发表</button>
+                                            </div>
+                                            <div class="feed-type-list pull-right">
+                                                <label class="radio">
+                                                    <input type="radio" name="feed-type" data-type="0">
+                                                    产品建议
+                                                </label>
+                                                <label class="radio">
+                                                    <input type="radio" name="feed-type" data-type="1">
+                                                    产品问题
+                                                </label>
+                                                <label class="radio">
+                                                    <input type="radio" name="feed-type" data-type="2">
+                                                    咨询帮助
+                                                </label>
+                                                <label class="radio">
+                                                    <input type="radio" name="feed-type" data-type="3">
+                                                    其他
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-back-list ma-t15">
+                                        <ul class="feed-source clearfix ma-b15">
+                                            <li class="my-feeds pull-left active">我的反馈</li>
+                                            <li class="all-feeds pull-left">所有反馈</li>
+                                        </ul>
+                                        <div class="feed-source-content text-left scrollbar">
+                                            <ul class="feed-source-item-list my-list">
+                                                <li class="feed-source-item">
+                                                    <div class="feed-header ma-b10 clearfix">
+                                                        <span class="feed-user ma-r10">用户A</span>
+                                                        <span class="feed-time ma-r10">2017-11-20 14:15:29</span>
+                                                        <span class="feed-type">产品建议</span>
+                                                        <span class="feed-tool pull-right">
+                                                            <span class="feed-feed ma-r5">回复</span>
+                                                            <span class="feed-delete ma-l5">删除</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="feed-body ma-b15">
+                                                        <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
+                                                    </div>
+                                                    <div class="feed-footer ma-b10 none">
+                                                        <div class="field is-horizontal">
+                                                            <div class="field-body ma-r10">
+                                                                <input class="input feed- is-small" type="text">
+                                                            </div>
+                                                            <div class="field-btn">
+                                                                <button class="btn is-danger is-small pa-x15 cancel">取消</button>
+                                                                <button class="btn is-primary is-small pa-x15 submit">回复</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="feed-source-item">
+                                                    <div class="feed-header ma-b10 clearfix">
+                                                        <span class="feed-user ma-r10">用户A</span>
+                                                        <span class="feed-time ma-r10">2017-11-20 14:15:29</span>
+                                                        <span class="feed-type">产品建议</span>
+                                                        <span class="feed-tool pull-right">
+                                                            <span class="feed-feed ma-r5">回复</span>
+                                                            <span class="feed-delete ma-l5">删除</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="feed-body ma-b15">
+                                                        <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
+                                                    </div>
+                                                    <div class="feed-footer ma-b10 none">
+                                                        <div class="field is-horizontal">
+                                                            <div class="field-body ma-r10">
+                                                                <input class="input feed- is-small" type="text">
+                                                            </div>
+                                                            <div class="field-btn">
+                                                                <button class="btn is-danger is-small pa-x15 cancel">取消</button>
+                                                                <button class="btn is-primary is-small pa-x15 submit">回复</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <ul class="feed-source-item-list all-list none">
+                                                <li class="feed-source-item">
+                                                    <div class="feed-header ma-b10 clearfix">
+                                                        <span class="feed-user ma-r10">用户A1</span>
+                                                        <span class="feed-time ma-r10">2017-11-20 14:15:29</span>
+                                                        <span class="feed-type">产品建议</span>
+                                                        <span class="feed-tool pull-right">
+                                                            <span class="feed-feed ma-r5">回复</span>
+                                                            <span class="feed-delete ma-l5">删除</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="feed-body ma-b15">
+                                                        <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
+                                                    </div>
+                                                    <div class="feed-footer ma-b10 none">
+                                                        <div class="field is-horizontal">
+                                                            <div class="field-body ma-r10">
+                                                                <input class="input feed- is-small" type="text">
+                                                            </div>
+                                                            <div class="field-btn">
+                                                                <button class="btn is-danger is-small pa-x15 cancel">取消</button>
+                                                                <button class="btn is-primary is-small pa-x15 submit">回复</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="feed-source-item">
+                                                    <div class="feed-header ma-b10 clearfix">
+                                                        <span class="feed-user ma-r10">用户A11</span>
+                                                        <span class="feed-time ma-r10">2017-11-20 14:15:29</span>
+                                                        <span class="feed-type">产品建议</span>
+                                                        <span class="feed-tool pull-right">
+                                                            <span class="feed-feed ma-r5">回复</span>
+                                                            <span class="feed-delete ma-l5">删除</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="feed-body ma-b15">
+                                                        <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
+                                                    </div>
+                                                    <div class="feed-footer ma-b10 none">
+                                                        <div class="field is-horizontal">
+                                                            <div class="field-body ma-r10">
+                                                                <input class="input feed- is-small" type="text">
+                                                            </div>
+                                                            <div class="field-btn">
+                                                                <button class="btn is-danger is-small pa-x15 cancel">取消</button>
+                                                                <button class="btn is-primary is-small pa-x15 submit">回复</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new-folder-btn pa-t10">
+                        <button class="btn is-primary pa-x25 pa-y10">新建分析</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="plugin/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="plugin/contextMenu/contextMenu.min.js"></script>
+<script src="plugin/template/template-web.js"></script>
+<script src="plugin/layer/layer.js"></script>
+<script src="plugin/zTree_v3/js/jquery.ztree.core.min.js"></script>
+<script src="plugin/zTree_v3/js/jquery.ztree.excheck.min.js"></script>
+<script src="plugin/svg2Base64.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+<script src="js/contextMenu.js"></script>
+<script src="js/right-function-bar.js"></script>
+<script src="js/left-function-bar.js"></script>
+<script src="js/drag.js"></script>
+
+<!-- 列表 -->
+<!-- 一级列表 -->
+<script id="slideRight_tpl" type="text/html">
+    <ul>
+        <!-- 无下拉，有链接列表 -->
+        {{if type=="0"}}
+            {{each data value i}}
+            <li>
+                <span data-operate="slideLi" class="list-header">
+                    <i class="fa fa-clipboard list-header-icon"></i>
+                    {{value.type}}
+                    <i class="fa fa-angle-double-up list-header-show"></i>
+                </span>
+                <ul data-operate="slideContent" class="list-second-block">
+                    {{each value.infos info j}}
+                    <li data-id="{{info.id}}" class="list-second-link objInfoList isSearch">
+                        <span class="list-second-header">
+                            {{info.name}}
+                            <i class="fa fa-angle-right right"></i>
+                        </span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/each}}
+        {{/if}}
+    </ul>
+</script>
+</html>
