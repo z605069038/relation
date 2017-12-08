@@ -34,7 +34,7 @@ $(function(){
 });
 
 function mousedown(e){
-    if(e.button != 0){
+    if(e&&e.button != 0){
         return;
     }
     Drag.hasMove=0;
@@ -204,9 +204,10 @@ function mouseup(){
             $(Drag.target).attr('class','node-circle-select');
             $(Drag.target).parent().find('.node-circle-text-normal').attr('class','node-circle-text-select');
             $(Drag.target).parent().find('.ding-marker-normal').attr('class','ding-marker-select');
-            Index.canvasInit();
         }
-    }}
+    }
+    Index.canvasInit();
+}
 
 function resizeFullscreen(){
     var top = parseFloat($('.zoomhadle').css('top'));
@@ -241,4 +242,5 @@ function resizeFullscreen(){
     }
     $('.zoomhadle').css('top',top);
     $('.graph-main').attr('transform','translate('+tx+','+ty+') scale('+scale+')');
+    Index.canvasInit();
 }

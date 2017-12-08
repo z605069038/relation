@@ -3,7 +3,7 @@
     {
       "id": "ceshi1",
       "x":"411",
-      "y":"142",
+      "y":"-72",
       "isMian":"1",
       "isSelect":"0",
       "isLock":"0",
@@ -14,14 +14,35 @@
     {
       "id": "ceshi2",
       "x":"500",
-      "y":"260",
+      "y":"660",
       "isMian":"0",
       "isSelect":"0",
       "isLock":"0",
       "baseMsg":{
         "xm":"测试2"
     }
-  }],
+  },{
+      "id": "ceshi3",
+      "x":"-123",
+      "y":"72",
+      "isMian":"1",
+      "isSelect":"0",
+      "isLock":"0",
+      "baseMsg":{
+        "xm":"测试3"
+      }
+    },
+    {
+      "id": "ceshi4",
+      "x":"700",
+      "y":"330",
+      "isMian":"0",
+      "isSelect":"0",
+      "isLock":"0",
+      "baseMsg":{
+        "xm":"测试2"
+      }
+    }],
   "links": [
     {
       "id":"testlink",
@@ -29,8 +50,17 @@
       "source":"ceshi2",
       "x":"411",
       "px":"500",
-      "y":"142",
-      "py":"260",
+      "y":"-72",
+      "py":"660",
+      "text":"0.54"
+    },{
+      "id":"testlink2",
+      "target":"ceshi3",
+      "source":"ceshi4",
+      "x":"-123",
+      "px":"700",
+      "y":"72",
+      "py":"330",
       "text":"0.54"
     }
   ]

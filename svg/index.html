@@ -420,9 +420,12 @@
                         </span>
                     </div>
                     <div class="thumbnail-main" id="controlDiv">
+                        <div style="position: relative;width: 150px;height: 150px;">
+                            <span id="dragbox" data-transfrom="0,0" data-init='true' style="transform:translate(0,0);position: relative;top:0;left:0;display: inline-block;width: 50px;height: 50px;background: purple;opacity: 0.1"></span>
+                        </div>
                         <!--<canvas class="graph-thumbnail" width="144" height="144"></canvas>-->
-                        <span id="dragBox" style="cursor:-webkit-grab;position:absolute;left:2px; z-index: 5;
-	width: 100px; height: 50px; background:url('images/whitebg.png') repeat;border-bottom:solid 0px #03D;border-top:solid 0px #03D;opacity:0.5"></span>
+                        <!--<span id="dragBox" style="cursor:-webkit-grab;position:absolute;left:0px; z-index: 5;-->
+	<!--width: 100px; height: 50px; background:url('images/whitebg.png') repeat;border-bottom:solid 0px #03D;border-top:solid 0px #03D;opacity:0.5"></span>-->
                     </div>
                 </div>
             </section>
@@ -1572,7 +1575,7 @@
     </div>
 
     <!--首页 人员关系分析入口-->
-    <div class="main-entrance-box">
+    <div class="main-entrance-box none">
         <div class="main-entrance">
             <div class="entrance-left radius-l3">
                 <div class="entrance-user-info clearfix">
@@ -1632,8 +1635,8 @@
                         </div>
                         <div class="entrance-right-content-subItem none">
                             <div class="entrance-right-content-box">
-                                <h3 class="entrance-right-title ma-b20 ma-l0">帮助视频</h3>
-                                <div class="help-media">
+                                <h3 class="entrance-right-title ma-b20 ma-l10">帮助视频</h3>
+                                <div class="help-media pa-x10">
                                     <video src="" controls="controls" class="help-viedo">
                                         您的浏览器不支持 video 标签。
                                     </video>
@@ -1642,8 +1645,8 @@
                         </div>
                         <div class="entrance-right-content-subItem none">
                             <div class="entrance-right-content-box">
-                                <h3 class="entrance-right-title ma-b20 ma-l0">新功能介绍</h3>
-                                <div class="news-list">
+                                <h3 class="entrance-right-title ma-b20 ma-l10">新功能介绍</h3>
+                                <div class="news-list pa-x10">
                                     <p class="what-news text-left ma-b15">1、增添了多节点分析功能；</p>
                                     <p class="what-news text-left ma-b15">2、增添了多节点分析功能；</p>
                                 </div>
@@ -1651,8 +1654,8 @@
                         </div>
                         <div class="entrance-right-content-subItem none">
                             <div class="entrance-right-content-box">
-                                <h3 class="entrance-right-title ma-b20 ma-l0">常见问题</h3>
-                                <div class="qa-list">
+                                <h3 class="entrance-right-title ma-b20 ma-l10">常见问题</h3>
+                                <div class="qa-list pa-x10">
                                     <p class="qa text-left ma-b20">
                                         <span class="q block ma-b10">1、首次如何登录？</span>
                                         <span class="a block">请与对应管理员联系获取登录账号，首次登录初始密码为XXXXXX</span>
@@ -1666,8 +1669,8 @@
                         </div>
                         <div class="entrance-right-content-subItem">
                             <div class="entrance-right-content-box">
-                                <h3 class="entrance-right-title ma-b20 ma-l0">意见反馈</h3>
-                                <div class="feed-back">
+                                <h3 class="entrance-right-title ma-b20 ma-l10">意见反馈</h3>
+                                <div class="feed-back scrollbar">
                                     <div class="feed-back-form">
                                         <textarea class="textarea feed-back-textarea" id="feed-textarea"></textarea>
                                         <div class="feed-back-type clearfix ma-t5">
@@ -1677,20 +1680,20 @@
                                                 <button class="feed-submit btn is-primary pa-x15" type="button">发表</button>
                                             </div>
                                             <div class="feed-type-list pull-right">
-                                                <label class="radio">
-                                                    <input type="radio" name="feed-type" data-type="0">
+                                                <label class="type-radio radio">
+                                                    <input class="feed-type-radio" type="radio" name="feed-type" data-type="0" checked>
                                                     产品建议
                                                 </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="feed-type" data-type="1">
+                                                <label class="type-radio radio">
+                                                    <input class="feed-type-radio" type="radio" name="feed-type" data-type="1">
                                                     产品问题
                                                 </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="feed-type" data-type="2">
+                                                <label class="type-radio radio">
+                                                    <input class="feed-type-radio" type="radio" name="feed-type" data-type="2">
                                                     咨询帮助
                                                 </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="feed-type" data-type="3">
+                                                <label class="type-radio radio">
+                                                    <input class="feed-type-radio" type="radio" name="feed-type" data-type="3">
                                                     其他
                                                 </label>
                                             </div>
@@ -1701,8 +1704,8 @@
                                             <li class="my-feeds pull-left active">我的反馈</li>
                                             <li class="all-feeds pull-left">所有反馈</li>
                                         </ul>
-                                        <div class="feed-source-content text-left scrollbar">
-                                            <ul class="feed-source-item-list my-list">
+                                        <div class="feed-source-content text-left">
+                                            <ul class="feed-source-item-list my-list active">
                                                 <li class="feed-source-item">
                                                     <div class="feed-header ma-b10 clearfix">
                                                         <span class="feed-user ma-r10">用户A</span>
@@ -1717,9 +1720,9 @@
                                                         <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
                                                     </div>
                                                     <div class="feed-footer ma-b10 none">
-                                                        <div class="field is-horizontal">
-                                                            <div class="field-body ma-r10">
-                                                                <input class="input feed- is-small" type="text">
+                                                        <div class="field is-horizontal ma-r0">
+                                                            <div class="field-body ma-r10 feed-input-box">
+                                                                <input class="input feed-input is-small" type="text">
                                                             </div>
                                                             <div class="field-btn">
                                                                 <button class="btn is-danger is-small pa-x15 cancel">取消</button>
@@ -1742,9 +1745,9 @@
                                                         <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
                                                     </div>
                                                     <div class="feed-footer ma-b10 none">
-                                                        <div class="field is-horizontal">
-                                                            <div class="field-body ma-r10">
-                                                                <input class="input feed- is-small" type="text">
+                                                        <div class="field is-horizontal ma-r0">
+                                                            <div class="field-body ma-r10 feed-input-box">
+                                                                <input class="input feed-input is-small" type="text">
                                                             </div>
                                                             <div class="field-btn">
                                                                 <button class="btn is-danger is-small pa-x15 cancel">取消</button>
@@ -1769,9 +1772,9 @@
                                                         <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
                                                     </div>
                                                     <div class="feed-footer ma-b10 none">
-                                                        <div class="field is-horizontal">
-                                                            <div class="field-body ma-r10">
-                                                                <input class="input feed- is-small" type="text">
+                                                        <div class="field is-horizontal ma-r0">
+                                                            <div class="field-body ma-r10 feed-input-box">
+                                                                <input class="input feed-input is-small" type="text">
                                                             </div>
                                                             <div class="field-btn">
                                                                 <button class="btn is-danger is-small pa-x15 cancel">取消</button>
@@ -1794,9 +1797,9 @@
                                                         <p class="feed-content" title="这个系统最大的缺点是没有缺点">这个系统最大的缺点是没有缺点</p>
                                                     </div>
                                                     <div class="feed-footer ma-b10 none">
-                                                        <div class="field is-horizontal">
-                                                            <div class="field-body ma-r10">
-                                                                <input class="input feed- is-small" type="text">
+                                                        <div class="field is-horizontal ma-r0">
+                                                            <div class="field-body ma-r10 feed-input-box">
+                                                                <input class="input feed-input is-small" type="text">
                                                             </div>
                                                             <div class="field-btn">
                                                                 <button class="btn is-danger is-small pa-x15 cancel">取消</button>

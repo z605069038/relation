@@ -64,48 +64,70 @@ function  calcPoints(a,b,c,d){
     }
 }
 
-function showQRCode(obj) {
-    scrollTo(0, 0);
-
-    if (typeof html2canvas !== 'undefined') {
-        //以下是对svg的处理
-        var nodesToRecover = [];
-        var nodesToRemove = [];
-        var svgElem = $(obj);//divReport为需要截取成图片的dom的id
-        svgElem.each(function (index, node) {
-            var parentNode = node.parentNode;
-            var svg = node.outerHTML.trim();
-
-            var canvas = document.createElement('canvas');
-            canvg(canvas, svg);
-            if (node.style.position) {
-                canvas.style.position += node.style.position;
-                canvas.style.left += node.style.left;
-                canvas.style.top += node.style.top;
-            }
-
-            nodesToRecover.push({
-                parent: parentNode,
-                child: node
-            });
-            parentNode.removeChild(node);
-
-            nodesToRemove.push({
-                parent: parentNode,
-                child: canvas
-            });
-
-            parentNode.appendChild(canvas);
-        });
-        html2canvas($(obj)[0], {
-            onrendered: function(canvas) {
-                // var base64Str =canvas.toDataURL();//base64码，可以转图片
-                //
-                // //...
-                //
-                // $('<img>',{src:base64Str}).appendTo($('.thumbnail-main'));//直接在原网页显示
-                $('.thumbnail-main').html(canvas);
-            }
-        });
+//通过计算得到svg缩略图的width和height值
+function getSvgImage(a,b,c,d){
+    var obj = new Object();
+    if(d>b || c>a){
+       if(d/b>c/a){
+           obj.height = d;
+           obj.width = d/b*a;
+       }else{
+           obj.height = c/a*b;
+           obj.width = c;
+       }
+    }else{
+        obj.width = a;
+        obj.height = b;
     }
+
+    if(obj.height>obj.width){
+        obj.width = obj.height;
+    }else{
+        obj.height = obj.width;
+    }
+    return obj;
+}
+
+//计算得出缩略图拖动框范围
+function checkDragbox(x,y,width,height){
+    var obj = new Object();
+    if(x<=0){
+        obj.x = 0;
+    }else if(x>=150-width){
+        obj.x = 150-width
+    }else{
+        obj.x = x;
+    }
+
+    if(y<=0){
+        obj.y = 0;
+    }else if(y>=150-height){
+        obj.y = 150-height
+    }else{
+        obj.y = y;
+    }
+
+    return obj;
+}
+
+//转换日期格式
+Date.prototype.format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1,                 //月份
+        "d+": this.getDate(),                    //日
+        "h+": this.getHours(),                   //小时
+        "m+": this.getMinutes(),                 //分
+        "s+": this.getSeconds(),                 //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds()             //毫秒
+    };
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        }
+    }
+    return fmt;
 }

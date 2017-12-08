@@ -86,7 +86,7 @@ Index.regEvent = function(){
             }else if($(this).hasClass('movecanvas')){
                 $('.graph-container').append('<svg class="cursor-dragstart" width="'+width+'" height="'+height+'" style="cursor: -webkit-grab;position: absolute;left:0;top:0;"></svg>')
                 //画布拖动
-                $('.cursor-dragstart').on('mousedown',function(){
+                $('.cursor-dragstart').on('mousedown',function(e){
                     Drag.type=2;
                     mousedown();
                 })
@@ -426,14 +426,14 @@ Index.indexEntrance = function () {
             $('.entrance-right-content-item').find('.entrance-right-content-subItem').addClass('none').eq(index).removeClass('none')
         }
     })
-
-
+    
+    
     //关闭分析入口窗口
     $('.close-entrance-btn').click(function () {
         $('.main-entrance-box').fadeOut(200);
     })
 
-
+    
     //我的反馈/所有反馈切换tab
     $('.feed-source').on('click','li',function () {
         var $this = $(this);
@@ -446,12 +446,12 @@ Index.indexEntrance = function () {
             $this.siblings().removeClass('active');
             $this.addClass('active');
 
-            $('.feed-source-content').find('.feed-source-item-list').addClass('none').eq(index).removeClass('none')
+            $('.feed-source-content').find('.feed-source-item-list').addClass('none').removeClass('active').eq(index).removeClass('none').addClass('active')
         }
     })
-
-
-    //点击回复显隐input
+    
+    
+    //点击回复和取消显隐input
     $('.feed-feed').click(function () {
         var $this = $(this);
 
@@ -462,49 +462,126 @@ Index.indexEntrance = function () {
     $('.feed-footer').on('click','button.cancel',function () {
         $(this).closest('.feed-footer').addClass('none').fadeOut(300)
     })
+
+
+    //点击删除
+    $('.feed-delete').click(function () {
+        var $this = $(this);
+
+        $this.closest('.feed-source-item').remove();
+    })
+
+    $('.feed-submit').click(function () {
+        var feed_username = '张涛儿';
+        var feed_content = $('.feed-back-textarea').val();
+        var feed_type = $('.feed-type-radio:checked').parent('.type-radio').text().trim()
+        var feed_date = new Date().format("yyyy-MM-dd hh:mm:ss");
+        var html = '<li class="feed-source-item"> <div class="feed-header ma-b10 clearfix"> <span class="feed-user ma-r10">' + feed_username + '</span> ' +
+            '<span class="feed-time ma-r10">' + feed_date + '</span> <span class="feed-type">' + feed_type + '</span> <span class="feed-tool pull-right"> ' +
+            '<span class="feed-feed ma-r5">回复</span> <span class="feed-delete ma-l5">删除</span> </span> </div> <div class="feed-body ma-b15"> ' +
+            '<p class="feed-content" title="' + feed_content + '">' + feed_content + '</p> </div> <div class="feed-footer ma-b10 none"> ' +
+            '<div class="field is-horizontal ma-r0"> <div class="field-body ma-r10 feed-input-box"> <input class="input feed-input is-small" type="text">' +
+            ' </div> <div class="field-btn"> <button class="btn is-danger is-small pa-x15 cancel">取消</button> <button class="btn is-primary is-small pa-x15 submit">回复</button>' +
+            ' </div> </div> </div> </li>';
+        var html_to = $('ul.feed-source-item-list');
+        html_to.prepend(html)
+    })
+
 }
 //缩略图初始化
 Index.canvasInit = function(){
     var canvas = $('.graph-container').find('.graph-canvas')[0];
-    $('#controlDiv').width(parseInt(($(".graph-container").width()*$('#controlDiv').height())/($(".graph-container")[0].scrollHeight)));
-    $('#dragBox').width($('#controlDiv').width());
+    //svg的宽高
+    var svgWidth = parseInt($('.graph-canvas').width());
+    var svgHeight = parseInt($('.graph-canvas').height());
+    var heightrich = 150/$('.graph-canvas').height();
+
+    var translate = $('.graph-main').attr('transform').replace(/translate\((.*)\) scale\((.*)\)/,'$1,$2');
+    var tx = parseFloat(translate.split(',')[0]);
+    var ty = parseFloat(translate.split(',')[1]);
+    var scale = parseFloat(translate.split(',')[2]);
+
+    var gWight = $('.graph-main')[0].getBBox().width -tx;
+    var gHeight = $('.graph-main')[0].getBBox().height -ty;
+    //确定画布偏移位置
+    var top = $('.graph-main')[0].getBBox().y+ty;
+    top = top>0?0:top;
+    var left = $('.graph-main')[0].getBBox().x+tx;
+    left = left>0?0:left;
+
+    var svgImage = getSvgImage(svgWidth,svgHeight,gWight*scale,gHeight*scale);
     try {
-        svgAsPngUri(canvas, null, function(uri) {
+        svgAsPngUri(canvas, {top:top*scale,left:left*scale,width:svgImage.width,height:svgImage.height,scale:scale}, function(uri) {
             $('#controlDiv').css('background-image','url('+uri+')');
             $('#controlDiv').css('background-size','cover');
         });
     } catch(err) {
         alert(err.message);
     }
-    $("#dragBox").css("top",($('#controlDiv')[0].offsetTop + 1)+'px');
 
+    //缩略图比例
+    var canvasScale = svgImage.width/150;
+    var dragboxWidth = svgWidth/canvasScale;
+    var dragboxHeight = svgHeight/canvasScale;
+    $('#dragbox').width(dragboxWidth);
+    $('#dragbox').height(dragboxHeight);
+    var tx = parseFloat($('#dragbox').attr('data-transfrom').split(',')[0]);
+    var ty = parseFloat($('#dragbox').attr('data-transfrom').split(',')[1]);
+    var gt = $('.graph-main').attr('transform').replace(/translate\((.*)\) scale\((.*)\)/,'$1,$2');
+    var gx = parseFloat(gt.split(',')[0]);
+    var gy = parseFloat(gt.split(',')[1]);
+    if($('#dragbox').attr('data-init')=='false'){
+        var dragTop = ty - gy/canvasScale;
+        var dragLeft = tx - gx/canvasScale;
+        var dragtranslate = checkDragbox(dragLeft,dragTop,dragboxWidth,dragboxHeight);
+        $('#dragbox').css('transform','translate('+dragtranslate.x+'px,'+dragtranslate.y+'px)');
+    }else{
+        var dragTop = Math.abs(top/canvasScale) - gy/canvasScale;
+        var dragLeft = Math.abs(left/canvasScale) - gx/canvasScale;
+        var dragtranslate = checkDragbox(dragLeft,dragTop,dragboxWidth,dragboxHeight);
+        $('#dragbox').css('transform','translate('+dragtranslate.x+'px,'+dragtranslate.y+'px)');
+        $('#dragbox').attr('data-transfrom',Math.abs(left/canvasScale)+','+Math.abs(top/canvasScale));
+        $('#dragbox').attr('data-init','false');
+    }
+    $('#dragbox').css('cursor','-webkit-grabbing');
 
-    $("#dragBox").on('mousedown',(function(e){
-        dragging = e.target;
-        $("#dragBox").css('cursor','-webkit-grabbing');
-    }));
-
-    $("#dragBox").on('mouseup',(function(e){
-        dragging = null;
-        $("#dragBox").css('cursor','-webkit-grab');
-    }));
-
-    $("#dragBox").on('mousemove',(function(e){
-        //$("#dragBox").css('cursor','-webkit-grab');
-        if(dragging){
-            var box = $('#controlDiv')[0];
-            var showBox = $(".graph-container");
-            dragging.style.top = (e.clientY  - dragBox.offsetHeight/2 ) + "px";
-            var top = parseInt(dragging.style.top);
-            showBox.scrollTop(((top - box.offsetTop)/box.offsetHeight)*(showBox[0].scrollHeight - showBox.height()));
-            if(top < box.offsetTop){
-                dragging.style.top = (box.offsetTop + 1)+"px";
-                showBox.scrollTop(0);
-            }
-            if(top >  box.offsetTop + box.offsetHeight - dragBox.offsetHeight - 2){
-                showBox.scrollTop(showBox[0].scrollHeight - showBox.height());
-                dragging.style.top =(  box.offsetTop + box.offsetHeight - dragBox.offsetHeight - 2 )+"px";
-            }
+    var hasDown = 0;
+    var hasMove = 0;
+    var x = 0,y=0;//初始坐标
+    $('#dragbox').on('mousedown',function(e){
+        hasDown = 1;
+        x = event.clientX;
+        y = event.clientY;
+        tx = parseFloat($('#dragbox').attr('data-transfrom').split(',')[0]);
+        ty = parseFloat($('#dragbox').attr('data-transfrom').split(',')[1]);
+        var gt = $('.graph-main').attr('transform').replace(/translate\((.*)\) scale\((.*)\)/,'$1,$2');
+        var gx = parseFloat(gt.split(',')[0]);
+        var gy = parseFloat(gt.split(',')[1]);
+        if(Drag.type==2){
+            var martin = $('#dragbox').css('transform').split(',');
+            tx = parseFloat(martin[4]);
+            ty = parseFloat(martin[5]);
         }
-    }));
+        //当鼠标按下时绑定鼠标移动和松开事件
+        $('.thumbnail-main').on('mousemove',function(e){
+            if(hasDown){
+                hasMove = 1;
+                var cx = event.clientX + tx - x;
+                var cy = event.clientY + ty - y;
+                var dragtranslate = checkDragbox(cx,cy,dragboxWidth,dragboxHeight);
+                $('#dragbox').css('transform','translate('+dragtranslate.x+'px,'+dragtranslate.y+'px)');
+                $('#dragbox').attr('data-transfrom',dragtranslate.x+','+dragtranslate.y);
+                $('.graph-main').attr('transform','translate('+(gx-(dragtranslate.x-tx)*canvasScale)+','+(gy-(dragtranslate.y-ty)*canvasScale)+') scale('+scale+')')
+            }else{
+                $('.thumbnail-main').off('mousemove');
+            }
+        });
+
+        $('.thumbnail-main').on('mouseup',function(e){
+            hasDown = 0;
+            hasMove = 0;
+            $('.thumbnail-main').off("mousemove",mousemove);
+            $('.thumbnail-main').off("mouseup",mouseup);
+        });
+    });
 }

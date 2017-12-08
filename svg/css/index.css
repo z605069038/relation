@@ -404,7 +404,6 @@ body {
     bottom:10px;
 }
 .graph-thumbnail-container .thumbnail-main{
-    padding:2px;
     position: absolute;
     bottom:39px;
     width: 150px;
@@ -779,7 +778,7 @@ body {
 
 #entrance-right-content {
     width: 100%;
-    padding: 15px 5px 0 5px;
+    padding: 15px 0 0 0;
 }
 
 .close-entrance-btn {
@@ -834,6 +833,14 @@ body {
 .entrance-folder a:hover {
     color: #1989ac;
     transition:all .5s ease;
+}
+
+.help-media {
+    padding: 0 10px;
+}
+
+.help-viedo {
+    width: 100%;
 }
 
 .new-folder-btn {
@@ -912,9 +919,9 @@ body {
 
 .feed-source-content {
     overflow-y: auto;
-    max-height: 160px;
-    padding-right: 15px;
-    width: calc(100% - 15px);
+    /*max-height: 160px;*/
+    /*padding-right: 15px;*/
+    /*width: calc(100% - 15px);*/
 }
 
 .feed-source-item {
@@ -924,4 +931,15 @@ body {
 
 .feed-source-item:last-child {
     border-color: transparent;
+}
+
+.feed-input-box {
+    max-width: 76%!important
+}
+
+.feed-back {
+    height: 340px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 10px;
 }
